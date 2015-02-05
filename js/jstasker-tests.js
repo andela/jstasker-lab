@@ -65,4 +65,45 @@ describe('Tasker: ', function () {
       expect(listItem.hasClass('completed')).toBe(false);
     });
   });
+
+  describe('Completed tasks', function () {
+
+    beforeEach(function () {
+      this.Tasker = Tasker;
+      this.Tasker.init();
+    });
+
+    afterEach(function () {
+      this.Tasker = undefined;
+    });
+
+    it('should maintain a count of the number of completed tasks', function () {
+      this.Tasker.clear();
+      var texts = ['Eat', 'Sleep', 'Read'];
+      for (var key in texts) {
+        this.Tasker.newTaskInput.val(texts[key]);
+        this.Tasker.newTaskButton.trigger('submit');
+      }
+      var listItem = this.Tasker.taskList.children('li').last();
+      listItem.trigger('click');
+
+      var activeCount = this.Tasker.taskList.children('li.completed').length;
+
+      expect(activeCount).toBe(1);
+    });
+
+     it('should show the number of completed tasks', function () {
+      this.Tasker.clear();
+      var texts = ['Eat', 'Sleep', 'Read'];
+      for (var key in texts) {
+        this.Tasker.newTaskInput.val(texts[key]);
+        this.Tasker.newTaskButton.trigger('submit');
+      }
+      var listItem = this.Tasker.taskList.children('li').last();
+      listItem.trigger('click');
+
+      expect(this.Tasker.taskCounter.text()).toBe(1 + " tasks completed");
+    });
+
+  });
 });
