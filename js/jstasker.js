@@ -3,8 +3,15 @@ $(function () {
     newTaskInput: null,
     newTaskButton: null,
     taskList: null,
-    addTask: function () {
+    addTask: function (text) {
+      var newTask = $('<li></li>').text(text);
+      newTask.off().on('click', function (event) {
+        $(this).toggleClass('completed');
+      });
 
+      this.taskList.append(newTask);
+
+      this.newTaskInput.val('').focus();
     },
     init: function () {
       var self = this;
@@ -17,12 +24,7 @@ $(function () {
         event.preventDefault();
 
         var taskText = self.newTaskInput.val();
-
-        var newTask = $('<li></li>').text(taskText);
-
-        self.taskList.append(newTask);
-
-        self.newTaskInput.val('').focus();
+        self.addTask(taskText);
       });
     }
   };

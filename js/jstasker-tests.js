@@ -13,7 +13,7 @@ describe('Tasker: ', function () {
       this.Tasker = undefined;
     });
 
-    it('should have no children', function () {
+    it('should be empty', function () {
       expect(this.Tasker.taskList.children('li').length).toBe(0);
     });
 
@@ -31,5 +31,38 @@ describe('Tasker: ', function () {
       expect(this.Tasker.taskList.children('li').last().text()).toBe("Learn jQuery");
     });
 
+  });
+
+  describe('Checking off tasks', function () {
+
+    beforeEach(function () {
+      this.Tasker = Tasker;
+      this.Tasker.init();
+    });
+
+    afterEach(function () {
+      this.Tasker = undefined;
+    });
+
+    it('should cross a list item off when clicked', function () {
+      this.Tasker.newTaskInput.val('Clickable Task');
+      this.Tasker.newTaskButton.trigger('submit');
+
+      var listItem = this.Tasker.taskList.children('li').last();
+      listItem.trigger('click');
+
+      expect(listItem.hasClass('completed')).toBe(true);
+    });
+
+    it('should restore a crossed list item when clicked', function () {
+      this.Tasker.newTaskInput.val('Another clickable task');
+      this.Tasker.newTaskButton.trigger('submit');
+
+      var listItem = this.Tasker.taskList.children('li').last();
+      listItem.trigger('click');
+      listItem.trigger('click');
+
+      expect(listItem.hasClass('completed')).toBe(false);
+    });
   });
 });
