@@ -92,7 +92,7 @@ describe('Tasker: ', function () {
       expect(activeCount).toBe(1);
     });
 
-     it('should show the number of completed tasks', function () {
+    it('should show the number of completed tasks', function () {
       this.Tasker.clear();
       var texts = ['Eat', 'Sleep', 'Read'];
       for (var key in texts) {
@@ -105,5 +105,45 @@ describe('Tasker: ', function () {
       expect(this.Tasker.taskCounter.text()).toBe(1 + " tasks completed");
     });
 
+  });
+
+  describe('Remaining tasks', function () {
+
+    beforeEach(function () {
+      this.Tasker = Tasker;
+      this.Tasker.init();
+    });
+
+    afterEach(function () {
+      this.Tasker = undefined;
+    });
+
+    it('should maintain a count of the number of remaining tasks', function () {
+      this.Tasker.clear();
+      var texts = ['Eat', 'Sleep', 'Read'];
+      for (var key in texts) {
+        this.Tasker.newTaskInput.val(texts[key]);
+        this.Tasker.newTaskButton.trigger('submit');
+      }
+      var listItem = this.Tasker.taskList.children('li').last();
+      listItem.trigger('click');
+
+      var remainingCount = this.Tasker.taskList.children('li').not('.completed').length;
+
+      expect(remainingCount).toBe(2);
+    });
+
+    it('should show the number of remaining tasks', function () {
+      this.Tasker.clear();
+      var texts = ['Eat', 'Sleep', 'Read'];
+      for (var key in texts) {
+        this.Tasker.newTaskInput.val(texts[key]);
+        this.Tasker.newTaskButton.trigger('submit');
+      }
+      var listItem = this.Tasker.taskList.children('li').last();
+      listItem.trigger('click');
+
+      expect(this.Tasker.remCounter.text()).toBe(2 + " tasks remaining");
+    });
   });
 });
