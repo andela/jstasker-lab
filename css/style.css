@@ -9,12 +9,24 @@ html{
   font-size: 90%;
 }
 
-body{
-  width: 400px;
-  margin: 10px auto;
-  border: 1px solid #EEE;
-  background: #F6F6F6;
+body {
+
   padding: 10px 20px;
+}
+
+#tasker {
+  background: #F6F6F6;
+  border: 1px solid #EEE;
+
+  position: absolute;
+  left: 0;
+
+  min-width: 40%;
+  max-width: 50%;
+
+  margin: 5%;
+  padding: 10px;
+
 }
 
 fieldset{
@@ -74,4 +86,12 @@ h2 span#task_counter{
 .trash:hover{
   background: #F99;
   cursor: pointer;
+}
+
+.jasmine_html-reporter {
+  position: absolute;
+  min-width: 40%;
+  max-width: 50%;
+  margin: 5%;
+  left: 50%;
 }
