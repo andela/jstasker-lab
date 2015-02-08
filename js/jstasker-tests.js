@@ -13,11 +13,11 @@ describe('Tasker: ', function () {
       this.Tasker = undefined;
     });
 
-    it('should be empty', function () {
+    it('should be empty when initialized', function () {
       expect(this.Tasker.taskList.children('li').length).toBe(0);
     });
 
-    it('should add a task', function () {
+    it('should add a task when input button is clicked', function () {
       this.Tasker.newTaskInput.val('Hello, World');
       this.Tasker.newTaskButton.trigger('submit');
 
@@ -29,6 +29,13 @@ describe('Tasker: ', function () {
       this.Tasker.newTaskButton.trigger('submit');
 
       expect(this.Tasker.taskList.children('li').last().text()).toBe("Learn jQuery");
+    });
+
+    it('should clear the text field after a new task has been added.', function () {
+      this.Tasker.newTaskInput.val('Clear input box');
+      this.Tasker.newTaskButton.trigger('submit');
+
+      expect(this.Tasker.newTaskInput.val()).toEqual('');
     });
 
   });
@@ -102,7 +109,7 @@ describe('Tasker: ', function () {
       var listItem = this.Tasker.taskList.children('li').last();
       listItem.trigger('click');
 
-      expect(this.Tasker.taskCounter.text()).toBe(1 + " tasks completed");
+      expect(this.Tasker.doneCounter.text()).toBe(1 + " tasks completed");
     });
 
   });

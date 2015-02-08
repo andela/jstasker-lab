@@ -1,55 +1,33 @@
 $(function () {
   window.Tasker = {
+    // The input field for the new task form
     newTaskInput: null,
+
+    // The submit button for the new task form
     newTaskButton: null,
+
+    // The list element containing all the tasks
     taskList: null,
-    taskCounter: null,
+
+    // The element that shows the count of completed tasks.
     doneCounter: null,
+
+    // The element that shows the count of remaining tasks.
+    remCounter: null,
+
+    // Method to add a new task to the list.
     addTask: function (text) {
-      var self = this;
-      // This method adds a new task to the list.
-      var newTask = $('<li></li>').text(text);
-      newTask.off().on('click', function (event) {
-        $(this).toggleClass('completed');
-        self.updateDoneTaskCounter();
-        self.updateRemainingTaskCounter();
-      });
 
-      this.taskList.append(newTask);
-
-      this.newTaskInput.val('').focus();
     },
+
+    // Method to initialize the task list.
     init: function () {
-      // This method initializes the task list application.
-      var self = this;
 
-      this.newTaskInput = $('input#task_text');
-      this.newTaskButton = $('form#add_task');
-      this.taskList = $('#tasks > ul');
-      this.taskCount = 0;
-      this.taskCounter = $('#done_tasks');
-      this.taskCounter.text(this.taskCount + " tasks completed");
-      this.remCount = 0;
-      this.remCounter = $('#rem_tasks');
-      this.remCounter.text(this.remCount + " tasks remaining");
+    },
 
-      this.newTaskButton.off().on('submit', function (event) {
-        event.preventDefault();
-
-        var taskText = self.newTaskInput.val();
-        self.addTask(taskText);
-      });
-    },
-    updateDoneTaskCounter: function () {
-      this.taskCounter.text(this.taskList.children('li.completed').length + " tasks completed");
-    },
-    updateRemainingTaskCounter: function () {
-      // something
-      this.remCounter.text(this.taskList.children('li').not('.completed').length + " tasks remaining");
-    },
+    // Method to clear the task list.
     clear: function () {
-      // This method clears the task list of all tasks
-      this.taskList.empty();
+
 
     }
   };

@@ -26,8 +26,9 @@ The to-do list application must meet the following constraints:
   + The application must utilize the OLP.
 
 **Design Constraints**
-  + The various sections and elements of the to-do list application should be referenced by properties of the application object. These attributes have been provided for you in the application's script file.
+  + The various sections and elements of the to-do list application should be referenced by properties of the application object. These attributes have been provided for you in the application's script file. DO NOT change the ids of the elements or the names of the methods and attributes.
 
 ###Sample output
+![JSTasker](jstasker_output.png)
 
 
