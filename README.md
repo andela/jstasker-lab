@@ -38,7 +38,7 @@ The to-do list application must meet the following constraints:
 **Design Constraints**
   + The various sections and elements of the to-do list application should be referenced by properties of the application object. These attributes have been provided for you in the `jstasker.js` script file.
 
-  **DO NOT change the ids of the elements or the names of the methods and attributes.**
+  **Please, do not change the ids of the elements in the HTML file or the names of the methods and attributes in the `jstasker.js` file. They are required for the tests.**
 
 ###Sample output
 ![JSTasker](jstasker_output.png)
