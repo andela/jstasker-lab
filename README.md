@@ -1,6 +1,8 @@
 JSTasker
 ---------------------------------------
 
+<p style="color: red;">Please, read everything in this README before you start. Thank you.</p>
+
 ###About to-do lists
 A todo list is a list of tasks that need to be accomplished before a due date. New tasks are added to the list when needed and completed tasks are crossed out. Tasks may be ordered based on priority.
 
