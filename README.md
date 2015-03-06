@@ -19,15 +19,14 @@ The to-do list application should enable users:
   + Maintain a count of tasks that have yet to be completed
 
 The to-do list appliction may possess additional features such as:
-  ++ Persisting the tasks to the browser's local storage.
-
+  + Persisting the tasks to the browser's local storage.
 
 ###Functionality
-  ++  **Adding tasks**
+  +  **Adding tasks**
   When the user clicks the 'Add' button after typing text into the input field, a new task is added to the task list and appears below the previous task.
-  ++  **Checking tasks**
+  +  **Checking tasks**
   When a task is clicked on, a line should be drawn across the text of the task (strikethrough). This indicates the task has been completed.
-  ++  **Unchecking tasks**
+  +  **Unchecking tasks**
   When a completed task is clicked, the strikethrough should be removed. This indicates the task has yet to be completed.
   +  **Task count**
   Each time a new task is added, the 'remaining' task count should be updated. Each time a task is checked, the 'completed' task count should be updated.
