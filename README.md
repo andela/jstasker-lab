@@ -19,14 +19,15 @@ The to-do list application should enable users:
   + Maintain a count of tasks that have yet to be completed
 
 The to-do list appliction may possess additional features such as:
-  + Persisting the tasks to the browser's local storage.
+  ++ Persisting the tasks to the browser's local storage.
+
 
 ###Functionality
-  +  **Adding tasks**
+  ++  **Adding tasks**
   When the user clicks the 'Add' button after typing text into the input field, a new task is added to the task list and appears below the previous task.
-  +  **Checking tasks**
+  ++  **Checking tasks**
   When a task is clicked on, a line should be drawn across the text of the task (strikethrough). This indicates the task has been completed.
-  +  **Unchecking tasks**
+  ++  **Unchecking tasks**
   When a completed task is clicked, the strikethrough should be removed. This indicates the task has yet to be completed.
   +  **Task count**
   Each time a new task is added, the 'remaining' task count should be updated. Each time a task is checked, the 'completed' task count should be updated.
@@ -44,5 +45,23 @@ The to-do list application must meet the following constraints:
 
 ###Sample output
 ![JSTasker](jstasker_output.png)
+
+
+###How to Run this Lab
+
++ Clone the repository
++ Open **index.html** in your browser to see the currently failing test specs you are to pass
++ Open the repository in your favorite text editor to explore the different files
++ Open **js\jstasker.js** and write the function(s) or lines of code to pass the tests
++ You could refresh **index.html** in your browser intermittently to see the status of test specs.
+
+###Notes
+
++ Remember that passing code is just the first step. The goal is to work towards a solution that is as readable and expressive as you can make
+it.
+
++ Please make your solution as general as possible. Good code doesn't just pass the test suite, it works with any input that fits the specification.
+
+Have fun!
 
 
